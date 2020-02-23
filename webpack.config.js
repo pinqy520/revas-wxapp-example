@@ -3,7 +3,7 @@ const {resolve} =require('path')
 
 module.exports = {
 
-  mode: 'development',
+  mode: 'production',
 
   entry: './src/index.tsx',
   output: {
@@ -11,22 +11,14 @@ module.exports = {
     path: resolve(__dirname, 'dist'),
   },
 
-  // Currently we need to add '.ts' to the resolve.extensions array.
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
-  // Source maps support ('inline-source-map' also works)
   devtool: 'source-map',
 
-  // Add the loader for .ts files.
   module: {
     rules: [
-      // {
-      //   test: /\.js$/,
-      //   use: ['babel-loader', 'source-map-loader'],
-      //   exclude: /node_modules/,
-      // },
       {
         test: /\.tsx?$/,
         use: ['awesome-typescript-loader'],

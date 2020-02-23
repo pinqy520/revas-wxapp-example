@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text, View, Image, Touchable, ScrollView, LinearGradient } from 'revas/custom';
+import logo from './logo.png'
 
 export default function App() {
   return (
     <View style={styles.container}>
       <View style={styles.card} pointerEvents="box-none">
-        <Image style={styles.logo}
-          src={require('./logo.png').default} />
+        <Image style={styles.logo} src={logo} />
         <Text style={styles.text} numberOfLines={2}>
           Revas让你可以用React和Flexible CSS，在Canvas上绘制高性能交互式界面～{'🎉'}
         </Text>

@@ -1,5 +1,5 @@
 {
-	"description": "Revas小程序示例",
+	"description": "Revas小游戏示例",
 	"setting": {
 		"urlCheck": false,
 		"es6": true,
@@ -8,7 +8,7 @@
 	},
 	"compileType": "game",
 	"libVersion": "1.9.94",
-	"appid": "wx25f2ef2877f6679a",
+	"appid": "wx58e0a48768926153",
 	"projectname": "revas-wx",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},

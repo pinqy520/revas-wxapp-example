@@ -2,11 +2,10 @@ import React from 'react';
 import {renderer, noop, Container, RevasTouch, RevasTouchEvent} from 'revas/custom'
 import App from './App';
 
-function createRevasTouchEvent(e: TouchEvent): RevasTouchEvent {
+function createRevasTouchEvent(e: TouchEvent, type: any = e.type): RevasTouchEvent {
   const touches: { [key: number]: RevasTouch } = {}
-  const type: any = e.type === 'touchcancel' ? 'touchend' : e.type
+  type = type === 'touchcancel' ? 'touchend' : type
   Object.values(e.changedTouches).forEach(touch => {
-    // const { offsetLeft, offsetTop } = touch.target as HTMLCanvasElement
     touches[touch.identifier] = {
       identifier: touch.identifier,
       x: touch.clientX,
@@ -22,12 +21,11 @@ function render(app: React.ReactNode, canvas: HTMLCanvasElement) {
   canvas.height = windowHeight * devicePixelRatio
   const ctx = canvas.getContext('2d')
   ctx?.scale(devicePixelRatio, devicePixelRatio)
-  const onTouch = (e: TouchEvent) => container.handleTouch(createRevasTouchEvent(e))
 
-  wx.onTouchStart(onTouch)
-  wx.onTouchMove(onTouch)
-  wx.onTouchEnd(onTouch)
-  wx.onTouchCancel(onTouch)
+  wx.onTouchStart((e: any) => container.handleTouch(createRevasTouchEvent(e, 'touchstart')))
+  wx.onTouchMove((e: any) => container.handleTouch(createRevasTouchEvent(e, 'touchmove')))
+  wx.onTouchEnd((e: any) => container.handleTouch(createRevasTouchEvent(e, 'touchend')))
+  wx.onTouchCancel((e: any) => container.handleTouch(createRevasTouchEvent(e, 'touchcancel')))
 
   const container = new Container(ctx, windowWidth, windowHeight)
   const fiber = renderer.createContainer(container, false, false)
