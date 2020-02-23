@@ -1,0 +1,33 @@
+{
+	"description": "Revas小程序示例",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "game",
+	"libVersion": "1.9.94",
+	"appid": "wx25f2ef2877f6679a",
+	"projectname": "revas-wx",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": -1,
+			"list": []
+		}
+	}
+}
